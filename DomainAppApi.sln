@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.809.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainAppApi", "DomainAppApi\DomainAppApi.csproj", "{76854563-FF47-411B-9659-7E8FC3CA0189}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainAppApi", "DomainAppApi\DomainAppApi.csproj", "{7399624B-0468-41EE-8B6B-271BAB587184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{76854563-FF47-411B-9659-7E8FC3CA0189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76854563-FF47-411B-9659-7E8FC3CA0189}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76854563-FF47-411B-9659-7E8FC3CA0189}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76854563-FF47-411B-9659-7E8FC3CA0189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7399624B-0468-41EE-8B6B-271BAB587184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7399624B-0468-41EE-8B6B-271BAB587184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7399624B-0468-41EE-8B6B-271BAB587184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7399624B-0468-41EE-8B6B-271BAB587184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

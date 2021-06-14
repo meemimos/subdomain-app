@@ -10,7 +10,5 @@ namespace DomainAppApi.Models
 
         public string IpAddress { get; set; }
 
-        public Array subdomains { get; set; }
-
     }
 }
