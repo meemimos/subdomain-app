@@ -1,81 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using DomainAppApi.Models;
 using DomainAppApi.Services;
 using System;
 using System.Threading.Tasks;
 using System.Net;
+
 using System.Text;
 
 
 namespace DomainAppApi.Controllers
 {
-    //[ApiController]
-    //[Route("subdomain/[controller]")]
-    //public class DomainController : ControllerBase
-    //{
-    //    public DomainController() { }
-
-    //    [Route("enumerate"), HttpGet]
-    //    public ActionResult<List<Domain>> GetAll() =>
-    //    DomainServices.GetAll();
-
-    //    [HttpGet("{id}")]
-    //    public ActionResult<Domain> Get(int id)
-    //    {
-    //        var domain = DomainServices.Get(id);
-
-    //        if (domain == null)
-    //            return NotFound();
-
-    //        return domain;
-    //    }
-
-        
-
-    //    [HttpPost]
-    //    public IActionResult Create(Domain domain)
-    //    {
-    //        DomainServices.Add(domain);
-    //        return CreatedAtAction(nameof(Create), new { id = domain.Id }, domain);
-    //    }
-
-
-
-    //    [HttpPut("{id}")]
-    //    public IActionResult Update(int id, Domain domain)
-    //    {
-    //        if (id != domain.Id)
-    //            return BadRequest();
-
-    //        var existingDomain = DomainServices.Get(id);
-    //        if (existingDomain is null)
-    //            return NotFound();
-
-    //        DomainServices.Update(domain);
-
-    //        return NoContent();
-    //    }
-
-    //    [HttpDelete("{id}")]
-    //    public IActionResult Delete(int id)
-    //    {
-    //        var domain = DomainServices.Get(id);
-
-    //        if (domain is null)
-    //            return NotFound();
-
-    //        DomainServices.Delete(id);
-
-    //        return NoContent();
-    //    }
-
-
-    //}
-
-    [ApiController]
     [Route("subdomain/[controller]")]
+    [ApiController]
     public class enumerateController : ControllerBase
     {
         public enumerateController() { }
@@ -95,7 +32,6 @@ namespace DomainAppApi.Controllers
 
             return firstString;
         }
-
 
         [HttpGet("{domain_name}")] //subdomain/enumerate/{domain_name}
         public async Task<IActionResult> GetSubdomain(
@@ -149,25 +85,27 @@ namespace DomainAppApi.Controllers
             
         }
 
+
         [HttpPost("/subdomain/findipaddresses")] //subdomain/findipaddresses
         public async Task<IActionResult> PostSubdomainToGetIPAddresses(
-            [FromBody]String domain_name)
+            [FromBody]string domain_name)
         {
             try
             {
                 IPAddress[] addresses = DomainServices.GetIpFromHost(domain_name);
-
-                foreach (IPAddress add in addresses)
+                List<string> ips = new List<string>();
+                foreach (IPAddress ip in addresses)
                 {
-                    Console.WriteLine(add);
+                    Console.WriteLine(ip);
+                    ips.Add(ip.ToString());
                 }
-                return Ok(addresses[0].ToString());
+                return Ok(ips.ToArray());
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return Ok(e.Message);
+                return Ok("IP not found");
             }
         }
 
