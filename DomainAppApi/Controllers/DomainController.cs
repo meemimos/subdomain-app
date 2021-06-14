@@ -38,13 +38,16 @@ namespace DomainAppApi.Controllers
             [FromRoute] String domain_name)
         {
             string[] words = domain_name.Split('.');
+            string dotWhat;
 
             if (words.Length == 3)
             {
-                domain_name = words[1];
+                dotWhat = words[2];
+                domain_name = words[1] + "." + dotWhat;
             } else if (words.Length == 2)
             {
-                domain_name = words[0];
+                dotWhat = words[1];
+                domain_name = words[0] + "." + dotWhat;
             }
 
 
@@ -74,7 +77,7 @@ namespace DomainAppApi.Controllers
 
                 var text = lowerCase ? builder.ToString().ToLower() : builder.ToString().ToLower();
 
-                subdo.Add(text + "." + domain_name + ".com");
+                subdo.Add(text + "." + domain_name);
             }
 
             String[] subdomains = subdo.ToArray<String>();

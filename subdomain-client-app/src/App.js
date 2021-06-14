@@ -171,7 +171,7 @@ function App() {
                   <TableCell component="th" scope="row">{row.key}</TableCell>
                   <TableCell>{row.name}</TableCell>
                   <TableCell>
-                    {row.ips.map(ip => ip.data ? ip.data : ip)}
+                    {row.ips.map((ip, id) => " [ " + ip + " ] ")}
                   </TableCell>
                 </TableRow>
               )) : <TableRow><TableCell colSpan="3" align="center">No item found</TableCell></TableRow>}
